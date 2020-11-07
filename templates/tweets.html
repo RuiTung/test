@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <h1>&#128140; Tweets</h1>
+    <a href="/add_tweet" class="btn btn-success">Add Tweet</a>
+    <hr>
+    
+    <table class="table table-striped">
+        <tr>
+            <th>ID</th>
+            <th>Content</th>
+            <th>Date</th>
+            <th></th>
+            <th></th>
+            {% for tweet in tweets %}
+                <tr>
+                    <td>{{tweet.id}}</td>
+                    <td>{{tweet.content | safe}}</td>
+                    <td>{{tweet.create_date}}</td>
+                    <td><a href="add_comment/{{tweet.id}}" class="btn btn-default">Add Comment</a></td>
+                    <td><a href="comments/{{tweet.id}}" class="btn btn-default pull-right">View Comments</a></td>
+                </tr>
+            {% endfor %}
+        </tr>
+    </table>
+    
+    
+{% endblock %}

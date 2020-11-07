@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <h1>&#128172; Comments</h1>
+    <hr>
+    
+    <table class="table table-striped">
+        <tr>
+            <th>Tweet Id</th>
+            <th>Content</th>
+            <th>Date</th>
+            {% for comment in comments %}
+                <tr>
+                    <td>{{comment.tweetsID}}</td>
+                    <td>{{comment.content | safe}}</td>
+                    <td>{{comment.create_date}}</td>
+                </tr>
+            {% endfor %}
+        </tr>
+    </table>
+
+{% endblock %}
